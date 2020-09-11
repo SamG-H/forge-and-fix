@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'projects#index'
+  resources :projects
   resources :users, only: [:new, :create, :show]
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
