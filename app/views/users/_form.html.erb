@@ -1,3 +1,4 @@
+<div class="container has-text-centered">
 <%= form_with model: @user do |f| %>
 <div class="field">
 <%= f.label :username %>
@@ -9,7 +10,8 @@
 <%= f.password_field :password %>
 </div>
 
-<%= f.submit "Sign Up" %>
+<%= f.submit class: "button is-link"%>
 <% end %>
+</div>
 
 
