@@ -36,7 +36,7 @@
 	<a href="/projects" class="navbar-item"></a>
       </div>
       <div class="navbar-end">
-	  <a href="/logout" class="navbar-item">Logout</a>
+	<%= link_to "Sign Out", signout_path, method: :delete, class: "navbar-item" %>
       </div>
       <% end %>
       
