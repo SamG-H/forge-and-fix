@@ -1,10 +1,1 @@
-<%= form_with(model: @task, local: true) do |f| %>
-<%= render 'shared/errors', instance: @task %>
-
-<div class="field">
-  <%= f.label :status %>
-  <%= f.collection_select(:status, :status, ['in-progress', 'unassigned', 'finished'], :status, :status) %>
-</div>
-
-<%= f.submit class: "button is-link" %>
-<% end %>
+<%= render 'form' %>

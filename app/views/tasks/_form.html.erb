@@ -2,10 +2,14 @@
 <%= render 'shared/errors', instance: @task %>
 
 <div class="field">
-  <%= f.label :deadline %>
-  <%= f.date_select :deadline, order: [:month, :day, :year] %>
+  <%= f.label :issue %>
+  <%= collection_select(:task, :issue_id, Issue.all, :id, :description, prompt: "Please select the issue you would like to work on from this dropdown") %>
+</div>
+
+<div class="field">
+  <%= f.label :status %>
+  <%= f.select(:status, ['in-progress', 'finished']) %>
 </div>
 
 <%= f.submit class: "button is-link" %>
 <% end %>
-

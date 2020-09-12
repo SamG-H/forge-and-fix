@@ -13,7 +13,6 @@ class TasksController < ApplicationController
     set_issue
     @task = Task.new(task_params)
     @task.user = current_user
-    binding.pry
     if @task.save
       redirect_to task_path @task
     else
