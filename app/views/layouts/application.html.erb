@@ -15,7 +15,7 @@
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-	<a class="navbar-item" href="/">
+	<a class="navbar-item" href="/projects">
 	  <img src="/hammer-and-wrench.svg" alt="Projects" width="112" height="28"></a>
       </div>
       <%if !logged_in? %>
@@ -23,7 +23,7 @@
 	<div class="navbar-item">
 	  <div class="field is-grouped">
 	    <p class="control">
-	      <%= link_to "Sign Up", new_user_path, class: "button is-success" %>
+	      <%= link_to "Sign Up", signup_path, class: "button is-success" %>
 	    </p>
 	    <p class="control">
 	      <%= link_to "Sign In", signin_path, class: "button" %>

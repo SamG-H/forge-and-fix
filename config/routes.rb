@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :issues
   root 'projects#index'
   resources :projects
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:create, :show]
+  get '/signup', to: 'users#new'
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'

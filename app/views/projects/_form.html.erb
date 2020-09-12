@@ -1,6 +1,5 @@
 <div class="container has-text-centered">
-  <%= form_with model: @project do |f| %>
-  <%= render 'shared/errors', instance: @project %>
+  <%= form_with(model: @project, local: true) do |f| %>
 
   <div class="field">
     <%= f.label :title %>
@@ -15,5 +14,4 @@
   <%= f.submit class: "button is-link"%>
   <% end %>
 </div>
-
 
