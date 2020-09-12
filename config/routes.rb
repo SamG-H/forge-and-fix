@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tasks
   root 'projects#index'
   resources :projects do
     resources :issues
