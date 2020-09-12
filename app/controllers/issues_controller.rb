@@ -1,8 +1,8 @@
 class IssuesController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_issue, only: [:show, :edit, :update, :destroy]
   def index
     @issues = Issue.all
+    set_project
   end
 
   def new
@@ -10,9 +10,10 @@ class IssuesController < ApplicationController
   end
 
   def create
-    @issue = current_user.issues.new(issue_params)
+    set_project
+    @issue = @project.issues.new(issue_params)
     if @issue.save
-      redirect_to @issue
+      redirect_to project_issues_path
     else
       render :new
     end
@@ -25,19 +26,30 @@ class IssuesController < ApplicationController
   end
 
   def update
+    if @issue.update(issue_params)
+      redirect_to project_issue_path(@issue.project, @issue)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @project = Project.find_by(id: params[:project_id])
+    @issue.destroy
+    redirect_to project_path(@project)
   end
 
   private
 
   def issue_params
-    params.require(:issue).permit(:title, :category)
+    params.require(:issue).permit(:title, :description)
   end
 
   def set_issue
     @issue = Issue.find_by(id: params[:id])
   end
 
+  def set_project
+    @project = Project.find_by(id: params[:project_id])
+  end
 end

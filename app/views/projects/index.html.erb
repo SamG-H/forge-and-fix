@@ -2,8 +2,8 @@
   <h1 class="is-size-1">Projects</h1>
   <div>
     <% @projects.each do |p| %>
-      <p><%= p.title %>: <%= p.category %></p>
-      <% end %>
+      <%= link_to "#{p.title}: #{p.category}", p, class: "is-size-3" %><br>
+    <% end %>
   </div>
 <%= link_to "Create New Project", new_project_path, class:"button is-success" %>
 </div>

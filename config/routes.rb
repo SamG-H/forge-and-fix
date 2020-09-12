@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :issues
   root 'projects#index'
-  resources :projects
+  resources :projects do
+    resources :issues
+  end
   resources :users, only: [:create, :show]
   get '/signup', to: 'users#new'
   get '/signin', to: 'sessions#new'

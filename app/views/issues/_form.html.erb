@@ -1,5 +1,5 @@
 <div class="container has-text-centered">
-  <%= form_with(model: @issue, local: true) do |f| %>
+  <%= form_with(model: @issue, url: project_issues_path) do |f| %>
 
   <div class="field">
     <%= f.label :title %>
