@@ -1,9 +1,8 @@
-<div class="container has-text-centered">
-  <h1 class="is-size-1">Projects</h1>
-  <div>
-    <% @projects.each do |p| %>
-      <%= link_to "#{p.title}: #{p.description}", p, class: "is-size-3" %><br>
-    <% end %>
-  </div>
-<%= link_to "Create New Project", new_project_path, class:"button is-success" %>
+<h1 class="is-size-1">Projects</h1>
+<div>
+  <% @projects.each do |p| %>
+  <%= link_to "#{p.title}: #{p.description}", p, class: "is-size-3" %><br>
+  <% end %>
 </div>
+<%= link_to "Create New Project", new_project_path, class:"button is-success" %>
+

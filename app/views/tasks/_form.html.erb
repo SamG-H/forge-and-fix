@@ -3,7 +3,7 @@
 
 <div class="field">
   <%= f.label :issue %>
-  <%= collection_select(:task, :issue_id, Issue.all, :id, :description, prompt: "Please select the issue you would like to work on from this dropdown") %>
+  <%= collection_select(:task, :issue_id, Issue.all, :id, :title, prompt: "Please select the issue you would like to work on from this dropdown") %>
 </div>
 
 <div class="field">

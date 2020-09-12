@@ -1,0 +1,5 @@
+<h1 class="is-size-1">Your Tasks</h1>
+<% current_user.tasks.each do |t| %>
+<p class="is-size-5"><%= link_to "#{t.issue.title}: #{t.issue.description}", task_path(t) %>
+  for <%= link_to t.issue.project.title, project_path(t.issue.project) %></p>
+<% end %>

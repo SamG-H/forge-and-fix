@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ForgeAndFix</title>
+    <title>Forge And Fix</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -32,13 +32,16 @@
 	</div>
       </div>
       <% else %>
+      <div class="navbar-start">
+	<a href="/tasks" class="navbar-item">Tasks</a>
+      </div>
       <div class="navbar-end">
 	<%= link_to "Sign Out", signout_path, method: :delete, class: "navbar-item" %>
       </div>
       <% end %>
       
-      </div>
-    </nav>
+</div>
+</nav>
     <div class="container has-text-justified">
       <%= yield %>    
     </div>
