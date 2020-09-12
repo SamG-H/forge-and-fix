@@ -1,6 +1,6 @@
 <div class="container has-text-centered">
-  <%= form_with(model: @issue, url: project_issues_path) do |f| %>
-
+  <%= form_with(model: @issue, url: project_issues_path, local:true) do |f| %>
+  <%= render 'shared/errors', instance: @issue %>
   <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
