@@ -25,15 +25,22 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    if @project.update(project_params)
+      redirect_to @project
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @project.destroy
+    redirect_to projects_path
   end
 
   private
 
   def project_params
-    params.require(:project).permit(:title, :category)
+    params.require(:project).permit(:title, :category, :description)
   end
 
   def set_project

@@ -1,3 +1,18 @@
 <div class="container has-text-centered">
-<h1 class="is-size-1"><%= @project.title %></h1>
-<h2 class="is-size-2"><%= @project.category %></h2>
+  <h1 class="is-size-1"><%= @project.title %></h1>
+  <p class="is-size-4"><%= @project.category %></p>
+  <p class="is-size-5"><%= @project.description %></p>
+</div>
+<div class="container has-text-centered">
+  <h2 class="is-size-2">Issues</h2>
+  <% @project.issues.each do |i| %>
+  <p class="is-size-4"><%= link_to i.title, project_issue_path(@project, i) %></p>
+  <p class="is-size-5"><%= i.description %></p>
+  <% end %>
+</div>
+<div class="container has-text-centered">
+  <%= link_to "Edit This Project", edit_project_path, class:"button is-link" %>
+  <%= link_to "Submit an Issue", new_project_issue_path(@project), class:"button is-success" %>
+  <%= link_to "Delete This Project", project_path(@project), method: :delete, class:"button is-danger" %>
+</div>
+
