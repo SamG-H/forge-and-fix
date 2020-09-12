@@ -1,18 +1,17 @@
-<div class="container has-text-centered">
-  <%= form_with(model: @issue, url: project_issue_path, local: true) do |f| %>
-  <%= render 'shared/errors', instance: @issue %>
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-    
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <%= f.submit class: "button is-link"%>
-  <% end %>
+<%= form_with(model: @issue, url: project_issue_path, local: true) do |f| %>
+<%= render 'shared/errors', instance: @issue %>
+<div class="field">
+  <%= f.label :title %>
+  <%= f.text_field :title %>
 </div>
+
+<div class="field">
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+</div>
+
+<%= f.submit class: "button is-link"%>
+<% end %>
+
 
 

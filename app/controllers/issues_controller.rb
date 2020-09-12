@@ -34,7 +34,7 @@ class IssuesController < ApplicationController
   end
 
   def destroy
-    @project = Project.find_by(id: params[:project_id])
+    set_project
     @issue.destroy
     redirect_to project_path(@project)
   end

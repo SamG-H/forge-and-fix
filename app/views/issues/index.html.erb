@@ -1,8 +1,11 @@
-<div class="container has-text-centered">
-  <h1 class="is-size-1"><%= @project.title %></h1>
-  <h2 class="is-size-2 has-text-primary">Issues</h2>
+  <h1 class="is-size-1"><%= link_to @project.title, project_path(@project) %></h1>
+  <p class="is-size-4"><%= @project.description %></p>
+  <% if @project.issues.any? %>
+  <h2 class="is-size-2">Issues</h2>
   <% @project.issues.each do |i| %>
   <p class="is-size-3"><%= link_to i.title, project_issue_path(@project, i) %></p>
   <p class="is-size-4"><%= i.description %></p>
   <% end %>
-</div>
+  <% else %>
+  <h2 class="is-size-2"%>No Issues... Yet!</h2>
+  <% end %>

@@ -1,0 +1,11 @@
+<%= form_with(model: @task, local: true) do |f| %>
+<%= render 'shared/errors', instance: @task %>
+
+<div class="field">
+  <%= f.label :deadline %>
+  <%= f.date_select :deadline, order: [:month, :day, :year] %>
+</div>
+
+<%= f.submit class: "button is-link" %>
+<% end %>
+

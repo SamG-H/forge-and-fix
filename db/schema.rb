@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_09_12_195017) do
   create_table "tasks", force: :cascade do |t|
     t.integer "user_id"
     t.integer "issue_id"
-    t.text "deadline"
+    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
