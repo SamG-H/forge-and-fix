@@ -23,6 +23,9 @@
 	<div class="navbar-item">
 	  <div class="field is-grouped">
 	    <p class="control">
+	      <%= link_to "Log In with GitHub", '/auth/github', method: :post, class:"button is-link" %>
+	    </p>
+	    <p class="control">
 	      <%= link_to "Sign Up", signup_path, class: "button is-success" %>
 	    </p>
 	    <p class="control">

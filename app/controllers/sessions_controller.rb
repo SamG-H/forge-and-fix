@@ -3,6 +3,13 @@ class SessionsController < ApplicationController
     @user = User.new
   end
 
+  def github
+    user = User.find_or_create_with_oauth(auth)
+    session[:user_id] = user.id
+    binding.pry
+    redirect_to '/projects'
+  end
+  
   def create
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
@@ -17,5 +24,10 @@ class SessionsController < ApplicationController
   def destroy
     session.clear
     redirect_to signin_path
+  end
+
+  private
+  def auth
+    request.env['omniauth.auth']
   end
 end
