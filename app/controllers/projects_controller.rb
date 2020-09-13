@@ -2,7 +2,11 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projects = Project.all
+    if params[:search]
+      @projects = Project.list_category(params[:search])
+    else
+      @projects = Project.all
+    end
   end
 
   def new
