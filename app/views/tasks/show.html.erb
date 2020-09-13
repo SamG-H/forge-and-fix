@@ -1,6 +1,8 @@
 <h1 class="is-size-1"><%= link_to @task.issue.title, project_issue_path(@task.issue.project, @task.issue) %> for <%= link_to @task.issue.project.title, project_path(@task.issue.project) %><h1>
 <p class="is-size-4"><%= @task.issue.description %></p>
-<p class="is-size-5"><%= @task.status %></p>
-<p class="is-size-5"><%= @task.user.username %> is currently working on this task</p>
+<h2 class="is-size-2">Currently Working on This Issue:</h2>
+<% @task.issue.users.each do |u| %>
+<p class="is-size-4"><%= u.username %>: <%= @task.status %></p>
+<% end %>
 <%= link_to "Edit This Task", edit_task_path, class:"button is-link" %>
 <%= link_to "Delete This Task", task_path(@task), method: :delete, class:"button is-danger" %>

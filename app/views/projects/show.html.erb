@@ -1,7 +1,7 @@
   <h1 class="is-size-1"><%= @project.title %></h1>
   <p class="is-size-4"><%= @project.category %></p>
   <p class="is-size-5"><%= @project.description %></p>
-  <h2 class="is-size-2 has-text-info"><%= link_to "Issues", project_issues_path(@project) %></h2>
+  <h2 class="is-size-2">Issues</h2>
   <% @project.issues.each do |i| %>
   <p class="is-size-4"><%= link_to i.title, project_issue_path(@project, i) %></p>
   <p class="is-size-5"><%= i.description %></p>
