@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   match '/auth/:provider/callback', to: 'sessions#github', via: [:get, :post]
   resources :tasks
-  root 'projects#index'
+  root 'static#welcome'
   resources :projects do
     resources :issues
   end

@@ -15,7 +15,7 @@
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-	<a class="navbar-item" href="/projects">
+	<a class="navbar-item" href="/">
 	  <img src="/hammer-and-wrench.svg" alt="Projects" width="112" height="28"></a>
       </div>
       <%if !logged_in? %>
@@ -36,7 +36,10 @@
       </div>
       <% else %>
       <div class="navbar-start">
-	<a href="/tasks" class="navbar-item">My Tasks</a>
+	<%= link_to "Tasks", tasks_path, class: "navbar-item" %>
+	<%= link_to "Projects", projects_path, class: "navbar-item" %>
+
+
       </div>
       <div class="navbar-end">
 	<%= link_to "Sign Out", signout_path, method: :delete, class: "navbar-item" %>
