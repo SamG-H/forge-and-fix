@@ -6,7 +6,7 @@ Sign up for an account, create projects, add issues(bugs/features), and assign t
     2. $ bundle install
     3. $ rails s
 ## Usage
-    Go to localhost:3000/ in your brower
+    Go to localhost:3000/ in your browser
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/SamG-H/forge-and-fix. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 ## License
