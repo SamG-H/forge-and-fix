@@ -4,5 +4,7 @@
 <% @task.issue.users.each do |u| %>
 <p class="is-size-4"><%= u.username %>: <%= @task.status %></p>
 <% end %>
+<% if signed_in? && authorized?(@task) %>
 <%= link_to "Edit This Task", edit_task_path, class:"button is-link" %>
 <%= link_to "Delete This Task", task_path(@task), method: :delete, class:"button is-danger" %>
+<% end %>

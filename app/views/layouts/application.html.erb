@@ -18,12 +18,12 @@
 	<a class="navbar-item" href="/">
 	  <img src="/hammer-and-wrench.svg" alt="Projects" width="112" height="28"></a>
       </div>
-      <%if !logged_in? %>
+      <%if !signed_in? %>
       <div class="navbar-end">
 	<div class="navbar-item">
 	  <div class="field is-grouped">
 	    <p class="control">
-	      <%= link_to "Log In with GitHub", '/auth/github', method: :post, class:"button is-link" %>
+	      <%= link_to "Sign In With GitHub", '/auth/github', method: :post, class:"button is-link" %>
 	    </p>
 	    <p class="control">
 	      <%= link_to "Sign Up", signup_path, class: "button is-success" %>

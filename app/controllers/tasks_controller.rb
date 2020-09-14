@@ -1,6 +1,10 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  before_action :redirect_to_signin?, only: [:new, :create, :edit, :update, :destroy]
+  before_action only: [:edit, :update, :destroy] do
+    redirect_if_not_authorized(@task)
+  end
+  
   def index
     @tasks = Task.all
   end
@@ -10,7 +14,6 @@ class TasksController < ApplicationController
   end
 
   def create
-    set_issue
     @task = Task.new(task_params)
     @task.user = current_user
     if @task.save
