@@ -2,7 +2,7 @@
 <h1 class="is-size-1">Let's build something great together <%= @user.username %>!</h1>
 <% else %>
 <h1 class="is-size-1"><%= @user.username %>'s Projects!</h1>
-<% current_user.projects.each do |p| %>
+<% @user.projects.each do |p| %>
 <%= link_to "#{p.title}: #{p.category}", p, class: "is-size-3" %><br>
 <% end %>
 <% end %>
