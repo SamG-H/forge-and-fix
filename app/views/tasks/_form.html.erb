@@ -1,10 +1,9 @@
 <%= form_with(model: @task, local: true) do |f| %>
 <%= render 'shared/errors', instance: @task %>
 
-<div class="field">
-  <%= f.label :issue %>
-  <%= collection_select(:task, :issue_id, Issue.all, :id, :title, prompt: "Please select the issue you would like to work on from this dropdown") %>
-</div>
+<% if !@task.issue %>
+<%= f.hidden_field :issue_id, :value => params[:issue_id] %>
+<% end %>
 
 <div class="field">
   <%= f.label :status %>
