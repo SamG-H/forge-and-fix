@@ -1,18 +1,18 @@
 <%= form_with(model: @project, local: true) do |f| %>
 <%= render 'shared/errors', instance: @project %>
 <div class="field">
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.label :title, class: "label" %>
+  <%= f.text_field :title, class: "input" %>
 </div>
 
 <div class="field">
-  <%= f.label :category %>
-  <%= f.text_field :category %>
+  <%= f.label :category, class: "label" %>
+  <%= f.text_field :category, class: "input" %>
 </div>
 
 <div class="field">
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.label :description, class: "label" %>
+  <%= f.text_area :description, class: "input" %>
 </div>
 
 <%= f.submit class: "button is-link"%>

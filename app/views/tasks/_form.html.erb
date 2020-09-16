@@ -6,8 +6,8 @@
 <% end %>
 
 <div class="field">
-  <%= f.label :status %>
-  <%= f.select(:status, ['in-progress', 'finished']) %>
+  <%= f.label :status, class: "label" %>
+  <%= f.select(:status, ['in-progress', 'finished'], class: "input") %>
 </div>
 
 <%= f.submit class: "button is-link" %>

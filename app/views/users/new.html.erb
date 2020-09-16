@@ -1,18 +1,20 @@
-<div class="container has-text-centered">
-  <%= form_with(model: @user, local: true) do |f| %>
-  <%= render 'shared/errors', instance: @user %>
-  
-  <div class="field">
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </div>
+<div class="columns is-centered">
+  <div class="column is-one-third">
+    <h1 class="is-size-2">Create A New Account</h1>
+    <%= form_with(model: @user, local: true) do |f| %>
+    <%= render 'shared/errors', instance: @user %>
+    
+    <div class="field">
+	<%= f.text_field :username, placeholder: "Username", class: "input" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
+    <div class="field">
+	<%= f.password_field :password, placeholder: "Password", class: "input" %>
+    </div>
 
-  <%= f.submit "Sign Up", class: "button is-link"%>
-  <% end %>
+    <%= f.submit "Sign Up", class: "button is-link"%>
+    <% end %>
+  </div>
 </div>
+
 
