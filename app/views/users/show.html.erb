@@ -5,5 +5,6 @@
 <% current_user.projects.each do |p| %>
 <%= link_to "#{p.title}: #{p.category}", p, class: "is-size-3" %><br>
 <% end %>
-<%= link_to "Create New Project", new_project_path, class:"button is-success" %>
 <% end %>
+<%= link_to "Create New Project", new_project_path, class:"button is-success" %>
+
