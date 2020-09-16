@@ -7,9 +7,25 @@
     <% end %>
   </div>
 </div>
-<% @projects.each do |p| %>
-<%= link_to "#{p.title}: #{p.description}", p, class: "is-size-3" %><br>
-<% end %>
+<table class="table is-striped">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Creator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |p| %>
+    <tr>
+      <th><%= link_to p.title, p %></th>
+      <th><%= p.description %></th>
+      <th><%= p.category %></th>
+      <th><%= link_to p.user.username, p.user %></th>
+      <% end %>
+  </tbody>
+</table>
 <%= link_to "Create New Project", new_project_path, class:"button is-success" %>
 
 
