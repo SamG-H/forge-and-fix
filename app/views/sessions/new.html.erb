@@ -2,23 +2,23 @@
   <div class="column is-one-third">
     <h1 class="is-size-2">Sign In</h1>
     <% if @error %>
-    <div class="has-text-danger">
-      <p><%= @error %></p>
-    </div>
+      <div class="has-text-danger">
+        <p><%= @error %></p>
+      </div>
     <% end %>
     <%= form_tag('/signin', method: :post) do %>
 
-    <div class="field">
-      <%= text_field_tag(:username, nil, placeholder: 'Username', class: "input") %>
-    </div>
+      <div class="field">
+        <%= text_field_tag(:username, nil, placeholder: 'Username', class: "input") %>
+      </div>
 
-    <div class="field">
-      <%= password_field_tag(:password, nil, placeholder: 'Password', class: "input") %>
-    </div>
+      <div class="field">
+        <%= password_field_tag(:password, nil, placeholder: 'Password', class: "input") %>
+      </div>
 
-    <div class="actions">
-      <%= submit_tag("Sign In", class: "button is-link") %>
-    </div>
+      <div class="actions">
+        <%= submit_tag("Sign In", class: "button is-link") %>
+      </div>
 
     <% end %> 
   </div>

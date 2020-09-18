@@ -6,8 +6,8 @@ class ProjectsController < ApplicationController
   end
   
   def index
-    if params[:search]
-      @projects = Project.list_category(params[:search])
+    if params[:q]
+      @projects = Project.list_category(params[:q])
     else
       @projects = Project.all
     end
@@ -46,7 +46,6 @@ class ProjectsController < ApplicationController
   end
 
   private
-
   def project_params
     params.require(:project).permit(:title, :category, :description)
   end

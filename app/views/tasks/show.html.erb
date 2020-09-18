@@ -2,6 +2,6 @@
 <p class="is-size-4"><%= @task.issue.description %></p>
 <p class="is-size-4">Status: <%= @task.status %></p>
 <% if signed_in? && authorized?(@task) %>
-<%= link_to "Edit This Task", edit_task_path, class:"button is-link" %>
-<%= link_to "Delete This Task", task_path(@task), method: :delete, class:"button is-danger" %>
+  <%= link_to "Edit This Task", edit_task_path, class:"button is-link" %>
+  <%= link_to "Delete This Task", task_path(@task), method: :delete, class:"button is-danger" %>
 <% end %>

@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   helper_method :signed_in?, :current_user, :redirect_to_signin?, :authorized?, :redirect_if_not_authorized
 
   private
-  
   def signed_in?
     !!session[:user_id]
   end

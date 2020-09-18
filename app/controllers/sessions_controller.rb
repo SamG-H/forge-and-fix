@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def github
     user = User.find_or_create_with_oauth(auth)
     session[:user_id] = user.id
-    redirect_to '/projects'
+    redirect_to user
   end
   
   def create

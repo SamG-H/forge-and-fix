@@ -4,5 +4,5 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :issues, dependent: :destroy
 
-  scope :list_category, ->(category) { where("category == ?", category) }
+  scope :list_category, ->(category_search) { where("category == ?", category_search) }
 end

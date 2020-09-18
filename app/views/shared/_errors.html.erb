@@ -1,11 +1,11 @@
 <% if instance.errors.any? %>
-<div class="has-text-danger">
-  <h2><%= pluralize(instance.errors.count, "error") %> prohibited this <%= instance.class.name.downcase %> from being saved:</h2>
-  <ul class="fields_with_errors">
-    <% instance.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
+  <div class="has-text-danger">
+    <h2><%= pluralize(instance.errors.count, "error") %> prohibited this <%= instance.class.name.downcase %> from being saved:</h2>
+    <ul class="fields_with_errors">
+      <% instance.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 

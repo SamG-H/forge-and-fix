@@ -1,22 +1,23 @@
 <h1 class="is-size-1">Your Tasks</h1>
 <% if current_user.tasks.any? %>
-<table class="table is-striped">
-  <thead>
-    <tr>
-      <th>Project</th>
-      <th>Issue</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% current_user.tasks.each do |t| %>
-    <tr>
-      <th><%= link_to t.issue.project.title, project_path(t.issue.project) %></th>
-      <th><%= link_to "#{t.issue.title}: #{t.issue.description}", project_issue_path(t.issue.project, t.issue) %></th>
-      <th><%= link_to t.status, task_path(t) %></th>
+  <table class="table is-striped">
+    <thead>
+      <tr>
+        <th>Project</th>
+        <th>Issue</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.tasks.each do |t| %>
+        <tr>
+          <th><%= link_to t.issue.project.title, project_path(t.issue.project) %></th>
+          <th><%= link_to "#{t.issue.title}: #{t.issue.description}", project_issue_path(t.issue.project, t.issue) %></th>
+          <th><%= link_to t.status, task_path(t) %></th>
+        </tr>
       <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 <% else %>
-<p class="is-size-5">No tasks yet</p>
+  <p class="is-size-5">No tasks yet</p>
 <% end %>

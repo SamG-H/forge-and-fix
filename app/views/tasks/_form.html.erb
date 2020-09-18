@@ -1,10 +1,10 @@
 <%= form_with(model: @task, url: create_task_path, local: true) do |f| %>
-<%= render 'shared/errors', instance: @task %>
+  <%= render 'shared/errors', instance: @task %>
 
-<div class="field">
-  <%= f.label :status, class: "label" %>
-  <%= f.select(:status, ['in-progress', 'finished'], class: "input") %>
-</div>
+  <div class="field">
+    <%= f.label :status, class: "label" %>
+    <%= f.select(:status, ['in-progress', 'finished'], class: "input") %>
+  </div>
 
-<%= f.submit class: "button is-link" %>
+  <%= f.submit class: "button is-link" %>
 <% end %>
