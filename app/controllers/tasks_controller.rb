@@ -14,8 +14,10 @@ class TasksController < ApplicationController
   end
 
   def create
+    set_issue
     @task = Task.new(task_params)
     @task.user = current_user
+    @task.issue = @issue
     if @task.save
       redirect_to task_path @task
     else
@@ -45,13 +47,13 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:status, :issue_id)
+    params.require(:task).permit(:status)
   end
 
   def set_issue
-    @issue = Issue.find_by(id: params[:issue_id])
+    @issue = Issue.find_by(id: params[:id])
   end
-                           
+
   def set_task
     @task = Task.find_by(id: params[:id])
   end

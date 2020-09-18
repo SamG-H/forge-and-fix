@@ -1,6 +1,6 @@
 <h1 class="is-size-1">Projects</h1>
 <div class="columns">
-  <div class="column is-one-third">
+  <div class="column is-half">
     <%= form_tag(projects_path, method: :get, class: "field has-addons") do %>
     <%= text_field_tag(:search, params[:search], class: "input", placeholder: "Search Projects By Category") %>
     <%= submit_tag("Search", class: "button is-info") %>

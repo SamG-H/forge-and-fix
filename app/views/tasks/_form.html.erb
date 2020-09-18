@@ -1,9 +1,5 @@
-<%= form_with(model: @task, local: true) do |f| %>
+<%= form_with(model: @task, url: create_task_path, local: true) do |f| %>
 <%= render 'shared/errors', instance: @task %>
-
-<% if !@task.issue %>
-<%= f.hidden_field :issue_id, :value => params[:issue_id] %>
-<% end %>
 
 <div class="field">
   <%= f.label :status, class: "label" %>

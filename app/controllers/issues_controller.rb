@@ -15,6 +15,7 @@ class IssuesController < ApplicationController
   end
 
   def create
+    binding.pry
     set_project
     @issue = @project.issues.new(issue_params)
     if @issue.save
