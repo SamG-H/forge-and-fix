@@ -1,17 +1,15 @@
 <%= form_with(model: @issue, url: project_issue_path, local: true) do |f| %>
 <%= render 'shared/errors', instance: @issue %>
 <div class="field">
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.label :title, class: "label" %>
+  <%= f.text_field :title, class: "input" %>
 </div>
 
 <div class="field">
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.label :description, class: "label" %>
+  <%= f.text_area :description, class: "input" %>
 </div>
 
 <%= f.submit class: "button is-link"%>
 <% end %>
-
-
 
