@@ -14,6 +14,7 @@
       <th>Description</th>
       <th>Category</th>
       <th>Creator</th>
+      <th># of Issues</th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +24,8 @@
       <th><%= p.description %></th>
       <th><%= p.category %></th>
       <th><%= link_to p.user.username, p.user %></th>
+      <th><%= p.issues.count %></th>
+    </tr>
       <% end %>
   </tbody>
 </table>
