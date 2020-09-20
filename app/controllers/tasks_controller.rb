@@ -1,6 +1,5 @@
-class TasksController < ApplicationController
+class TasksController < SignedInController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :redirect_to_signin?, only: [:new, :create, :edit, :update, :destroy]
   before_action only: [:edit, :update, :destroy] do
     redirect_if_not_authorized(@task)
   end

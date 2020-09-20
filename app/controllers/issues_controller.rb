@@ -1,6 +1,5 @@
-class IssuesController < ApplicationController
+class IssuesController < SignedInController
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
-  before_action :redirect_to_signin?, only: [:new, :create, :edit, :update, :destroy]
   before_action only: [:edit, :update, :destroy] do
     redirect_if_not_authorized(@issue.project)
   end

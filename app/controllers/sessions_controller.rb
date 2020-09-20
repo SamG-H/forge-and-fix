@@ -5,8 +5,13 @@ class SessionsController < ApplicationController
 
   def github
     user = User.find_or_create_with_oauth(auth)
-    session[:user_id] = user.id
-    redirect_to user
+    if user
+      session[:user_id] = user.id
+      redirect_to user
+    else
+      @error = "Username already set up manually"
+      render :new
+    end
   end
   
   def create

@@ -1,6 +1,5 @@
-class ProjectsController < ApplicationController
+class ProjectsController < SignedInController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :redirect_to_signin?, only: [:new, :create, :edit, :update, :destroy]
   before_action only: [:edit, :update, :destroy] do
     redirect_if_not_authorized(@project)
   end

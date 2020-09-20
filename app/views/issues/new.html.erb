@@ -1,4 +1,4 @@
-<%= form_with(model: @issue, url: project_issues_path, local:true) do |f| %>
+<%= form_with(model: @issue, url: project_issues_path, local: true) do |f| %>
   <%= render 'shared/errors', instance: @issue %>
   <div class="field">
     <%= f.label :title, class: "label" %>
