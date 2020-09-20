@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     resources :issues
   end
 
-  resources :tasks, only: [:index, :show, :edit, :update, :destroy]
+
+  resources :tasks, except: [:new, :create, :update]
   get '/issues/:id/tasks/new', to: 'tasks#new', as: :new_task
   post '/issues/:id/tasks', to: 'tasks#create', as: :create_task
   patch '/issues/:id/tasks', to: 'tasks#update', as: :update_task
