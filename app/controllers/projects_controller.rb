@@ -6,9 +6,9 @@ class ProjectsController < SignedInController
   
   def index
     if params[:q]
-      @projects = Project.list_category(params[:q])
+      @projects = Project.list_category(params[:q]).order_by_issue_count
     else
-      @projects = Project.all
+      @projects = Project.order_by_issue_count
     end
   end
 
