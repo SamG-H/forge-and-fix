@@ -22,6 +22,13 @@
   </table>
 <% end %>
 
+<% if @issue.comments.any? %>
+  <h2 class='is-size-2'>Comments:</h2>
+  <ul>
+  <% @issue.comments.each do |c| %>
+    <li class='is-size-4'><%= c.user.username %> said: "<%= c.body %>"</li>
+  <% end %>
+<% end %>
 <% if signed_in? %>
   <%= link_to "Add to Your Tasks", new_task_path, class:"button is-success" %>
   <% if authorized?(@issue.project) %>
