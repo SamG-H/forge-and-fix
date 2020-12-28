@@ -17,7 +17,8 @@
       <div class="navbar-brand">
 	<a class="navbar-item" href="/">
 	  <img src="/hammer-and-wrench.svg" alt="Projects" width="112" height="28"></a>
-	<%= link_to "All Projects", projects_path, class: "navbar-item" %>
+    <%= link_to "All Projects", projects_path, class: "navbar-item" %>
+    <%= link_to "Creators", users_path, class: "navbar-item" %>
       </div>
       <%if !signed_in? %>
       <div class="navbar-end">
