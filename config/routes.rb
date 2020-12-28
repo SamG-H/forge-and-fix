@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'static#welcome'
   match '/auth/:provider/callback', to: 'sessions#github', via: [:get, :post]
-  resources :users, only: [:create, :show]
+  resources :users, only: [:create, :show, :index]
   get '/signup', to: 'users#new'
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
