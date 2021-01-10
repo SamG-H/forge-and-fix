@@ -22,14 +22,8 @@
   </table>
 <% end %>
 
-<% if @issue.comments.any? %>
-  <h2 class='is-size-2'>Comments:</h2>
-  <ul>
-  <% @issue.comments.each do |c| %>
-    <li class='is-size-4'><%= c.user.username %> said: "<%= c.body %>"</li>
-  <% end %>
-<% end %>
 <% if signed_in? %>
+  <%= link_to "Add Comment", new_comment_path, class:"button is-primary" %>
   <%= link_to "Add to Your Tasks", new_task_path, class:"button is-success" %>
   <% if authorized?(@issue.project) %>
     <%= link_to "Edit This Issue", edit_project_issue_path, class:"button is-link" %>
@@ -37,3 +31,14 @@
   <% end %>
 <% end %>
 
+<% if @issue.comments.any? %>
+  <h2 class='is-size-2'>Comments:</h2>
+  <ul>
+  <% @issue.comments.each do |c| %>
+    <li class='is-size-4'><%= c.user.username %> said: "<%= c.body %>"</li>
+    <% if c.user == current_user %>
+      <%= link_to "Edit This Comment", edit_comment_path, class:"button is-link" %>
+      <%= link_to "Delete This Comment", comment_path(c), method: :delete, class:"button is-danger" %>
+    <% end %>
+  <% end %>
+<% end %>
