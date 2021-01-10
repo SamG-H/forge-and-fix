@@ -10,10 +10,15 @@ Rails.application.routes.draw do
   resources :projects do
     resources :issues
   end
-
+  
 
   resources :tasks, except: [:new, :create, :update]
   get '/issues/:id/tasks/new', to: 'tasks#new', as: :new_task
   post '/issues/:id/tasks', to: 'tasks#create', as: :create_task
   patch '/issues/:id/tasks', to: 'tasks#update', as: :update_task
+
+  resources :comments, except: [:new, :create, :update]
+  get '/issues/:id/comments/new', to: 'comments#new', as: :new_comment
+  post '/issues/:id/comments', to: 'comments#create', as: :create_comment
+  patch '/issues/:id/comments', to: 'comments#update', as: :update_comment
 end
