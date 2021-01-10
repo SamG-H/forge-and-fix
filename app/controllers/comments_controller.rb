@@ -16,8 +16,9 @@ class CommentsController < SignedInController
   def create
     set_issue
     @comment = @issue.comments.new(comment_params)
+    @comment.user = current_user
     if @comment.save
-      redirect_to issue_comments_path
+      redirect_to comment_path @comment
     else
       render :new
     end
@@ -53,6 +54,6 @@ class CommentsController < SignedInController
   end
 
   def set_issue
-    @issue = Issue.find_by(id: params[:issue_id])
+    @issue = Issue.find_by(id: params[:id])
   end
 end
