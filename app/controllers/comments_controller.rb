@@ -18,7 +18,7 @@ class CommentsController < SignedInController
     @comment = @issue.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to comment_path @comment
+      redirect_to project_issue_path @comment.issue
     else
       render :new
     end
