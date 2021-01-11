@@ -1,7 +1,7 @@
 class CommentsController < SignedInController
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
   before_action only: [:edit, :update, :destroy] do
-    redirect_if_not_authorized(@comment.issue)
+    redirect_if_not_authorized(@comment)
   end
   
   def index
