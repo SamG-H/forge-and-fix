@@ -7,29 +7,33 @@
     <% end %>
   </div>
 </div>
-<table class="table is-striped">
-  <thead>
-    <tr>
-      <th>Project</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Creator</th>
-      <th># of Issues</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @projects.each do |p| %>
-    <tr>
-      <th><%= link_to p.title, p %></th>
-      <th><%= p.description %></th>
-      <th><%= p.category %></th>
-      <th><%= link_to p.user.username, p.user %></th>
-      <th><%= p.issues.count %></th>
-    </tr>
-      <% end %>
-  </tbody>
-</table>
+<% if !@projects.empty? %>
+  <table class="table is-striped">
+    <thead>
+      <tr>
+        <th>Project</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Creator</th>
+        <th># of Issues</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projects.each do |p| %>
+      <tr>
+        <th><%= link_to p.title, p %></th>
+        <th><%= p.description %></th>
+        <th><%= p.category %></th>
+        <th><%= link_to p.user.username, p.user %></th>
+        <th><%= p.issues.count %></th>
+      </tr>
+        <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="container mb-5">
+    <p class="is-size-4 has-text-danger">No projects found</p>
+  </div>
+<% end %>
 <%= link_to "Create New Project", new_project_path, class:"button is-success" %>
-
-
 
