@@ -5,7 +5,7 @@ class ProjectsController < SignedInController
   end
   
   def index
-    if params[:q]
+    if params[:q] && !params[:q].empty?
       @projects = Project.list_category(params[:q]).order_by_issue_count
     else
       @projects = Project.order_by_issue_count
