@@ -1,4 +1,4 @@
-<p class="is-size-3"><%= @comment.body %></p>
+<p class="is-size-3"><%= @comment.user.username %> said: <%= @comment.body %></p>
 <% if @comment.user == current_user %>
   <%= link_to "Edit This Comment", edit_comment_path, class:"button is-link" %>
   <%= link_to "Delete This Comment", comment_path(@comment), method: :delete, class:"button is-danger" %>
