@@ -35,10 +35,6 @@
   <h2 class='is-size-2'>Comments:</h2>
   <ul>
   <% @issue.comments.each do |c| %>
-    <li class='is-size-4'><%= c.user.username %> said: "<%= c.body %>"</li>
-    <% if c.user == current_user %>
-      <%= link_to "Edit This Comment", edit_comment_path, class:"button is-link" %>
-      <%= link_to "Delete This Comment", comment_path(c), method: :delete, class:"button is-danger" %>
-    <% end %>
+    <li class='is-size-4'><%= link_to "#{c.user.username} said: #{c.body}", comment_path(c) %></li>
   <% end %>
 <% end %>
