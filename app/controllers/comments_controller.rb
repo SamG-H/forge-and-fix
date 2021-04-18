@@ -1,12 +1,11 @@
 class CommentsController < SignedInController
-  before_action :set_issue, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action only: [:edit, :update, :destroy] do
     redirect_if_not_authorized(@comment)
   end
   
   def index
     @comments = Comment.all
-    set_issue
   end
 
   def new
@@ -18,7 +17,7 @@ class CommentsController < SignedInController
     @comment = @issue.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to project_issue_path @comment.issue
+      redirect_to project_issue_path @issue.project, @comment.issue
     else
       render :new
     end
@@ -32,16 +31,16 @@ class CommentsController < SignedInController
 
   def update
     if @comment.update(comment_params)
-      redirect_to issue_comment_path(@comment.issue, @comment)
+      redirect_to project_issue_path @comment.issue.project, @comment.issue
     else
       render :edit
     end
   end
 
   def destroy
-    set_issue
+    @issue = @comment.issue
     @comment.destroy
-    redirect_to issue_path(@issue)
+    redirect_to project_issue_path(@issue.project, @issue)
   end
 
   private
@@ -55,5 +54,6 @@ class CommentsController < SignedInController
 
   def set_issue
     @issue = Issue.find_by(id: params[:id])
+    puts "PARAMS[:ID] == #{params[:id]}"
   end
 end
